@@ -1,0 +1,26 @@
+{
+    "name": "supsign/laravel-mf-api",
+    "description": "Laravel Extension for handling CSV files",
+    "keywords": ["composer", "script", "myFactory"],
+    "license": "MIT",
+    "authors": [
+    {
+        "name": "Florian Ratz",
+        "email": "florian.ratz@supsign.ch"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Supsign\\LaravelCsvReader\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Supsign\\LaravelCsvReader\\LaravelCsvReaderServiceProvider"
+            ],
+            "aliases": {
+                "CsvReader": "Supsign\\LaravelCsvReader\\CsvReader"
+            }
+        }
+    }
+}
