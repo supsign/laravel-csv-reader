@@ -1,5 +1,5 @@
 {
-    "name": "supsign/laravel-mf-api",
+    "name": "supsign/laravel-csv-reader",
     "description": "Laravel Extension for handling CSV files",
     "keywords": ["composer", "script", "myFactory"],
     "license": "MIT",
