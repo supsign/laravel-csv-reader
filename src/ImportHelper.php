@@ -11,7 +11,7 @@ class ImportHelper extends DirectoryReader {
 		$time 			  	   = false;
 
 	public function __construct() {
-		return $this->initImporterConfiguration();
+		return $this;
 	}
 
 	//	local db address functions

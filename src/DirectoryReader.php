@@ -168,7 +168,7 @@ class DirectoryReader {
 				$this->addFileHandle($this->fileHandle);
 			}
 
-		return $this->closeDirectoryHandles();
+		// return $this->closeDirectoryHandles();
 	}
 
 	protected function validateFile($file) {

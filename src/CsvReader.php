@@ -2,9 +2,9 @@
 
 namespace Supsign\LaravelCsvReader;
 
-use Supsign\LaravelCsvReader\importHelper;
+use Supsign\LaravelCsvReader\ImportHelper;
 
-class CsvReader extends importHelper {
+class CsvReader extends ImportHelper {
 	protected
 		$fieldAddresses 		= [],
 		$fieldAddressDelemiter 	= false,
