@@ -69,6 +69,24 @@ class ImportHelper extends DirectoryReader {
 		return $this->time;
 	}
 
+	public function import() {
+		$this->readFiles();
+
+		while ($this->iterateLines() ) {
+			if (array_keys($this->line) == array_values($this->line)) {
+				continue;
+			}
+
+			$this->importLine();
+		}
+
+		return $this;
+	}
+
+	public function importLine() {
+		return $this;
+	}
+
 	public function setTime($time) {
 		$this->time = strtotime($time);
 
