@@ -83,7 +83,7 @@ class ImportHelper extends DirectoryReader {
 		return $this;
 	}
 
-	public function importLine() {
+	protected function importLine() {
 		return $this;
 	}
 
