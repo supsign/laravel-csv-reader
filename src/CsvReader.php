@@ -87,8 +87,6 @@ class CsvReader extends ImportHelper {
 		if (!$this->getFileHandles() )
 			$this->openFiles();
 
-		$this->clearLines();
-
 		foreach ($this->getFileHandles() AS $this->fileHandle) {
 			while ($line = fgetcsv($this->fileHandle, null, $this->getLineDelimiter() ) ) {
 				if (!is_array($line) )
