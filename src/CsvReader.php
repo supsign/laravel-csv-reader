@@ -81,6 +81,9 @@ class CsvReader extends ImportHelper {
 	//	general functions
 
 	public function readFiles() {
+		if (!empty($this->lines))
+			return $this;
+
 		if (!$this->getFileHandles() )
 			$this->openFiles();
 
