@@ -96,7 +96,7 @@ class CsvReader extends ImportHelper {
 					foreach (array_keys(array_diff_key($line, $this->getFieldAddresses() ) ) AS $field)
 						unset($line[$field]);
 
-					$line = array_combine($this->getFieldAddresses(), $line);
+					$line = array_combine($this->getFieldAddresses(), array_pad($line, count($this->getFieldAddresses()), ''));
 				}
 
 				$this->addLine($line);
