@@ -55,7 +55,7 @@ class DirectoryReader {
 				if ($this->getFileExtensions() AND !in_array($this->getFileExtension($file), $this->getFileExtensions() ) )
 					continue;
 
-				if ($this->getFileNames() AND !$this->inFileNames($file) )
+				if ($this->getFileNames() AND !in_array($file, this->getFileNames()))
 					continue;
 
 				$this->addFile($file);
