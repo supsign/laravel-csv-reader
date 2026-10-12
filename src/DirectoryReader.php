@@ -2,6 +2,8 @@
 
 namespace Supsign\LaravelCsvReader;
 
+use Exception;
+
 class DirectoryReader {
 	protected 
 		$directories		= [],
