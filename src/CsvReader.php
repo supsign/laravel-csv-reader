@@ -4,8 +4,12 @@ namespace Supsign\LaravelCsvReader;
 
 use Supsign\LaravelCsvReader\ImportHelper;
 
+use AllowDynamicProperties;
+
+#[AllowDynamicProperties]
 class CsvReader extends ImportHelper {
 	protected
+		$escape 				= '\\',
 		$fieldAddresses 		= [],
 		$fieldAddressDelemiter 	= false,
 		$lines 					= [],
@@ -77,6 +81,12 @@ class CsvReader extends ImportHelper {
 		return $this->lineDelimiter;
 	}
 
+	//	escape functions
+
+	protected function getEscape() {
+		return $this->escape;
+	}
+
 
 	//	general functions
 
@@ -88,7 +98,7 @@ class CsvReader extends ImportHelper {
 			$this->openFiles();
 
 		foreach ($this->getFileHandles() AS $this->fileHandle) {
-			while ($line = fgetcsv($this->fileHandle, null, $this->getLineDelimiter() ) ) {
+			while ($line = fgetcsv($this->fileHandle, null, $this->getLineDelimiter(), '"', $this->getEscape() ) ) {
 				if (!is_array($line) )
 					continue;
 
@@ -104,6 +114,23 @@ class CsvReader extends ImportHelper {
 		}
 
 		return $this->closeFileHandles();
+	}
+
+	public function readString($content) {
+		$handle = fopen('php://temp', 'r+');
+		fwrite($handle, $content);
+		rewind($handle);
+
+		return $this
+			->clearLines()
+			->addFileHandle($handle)
+			->readFiles();
+	}
+
+	public function setEscape($escape) {
+		$this->escape = $escape;
+
+		return $this;
 	}
 
 	public function setLineDelimiter($delimiter) {
