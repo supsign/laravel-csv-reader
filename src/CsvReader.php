@@ -120,6 +120,7 @@ class CsvReader extends ImportHelper {
 		rewind($handle);
 
 		return $this
+			->clearLines()
 			->addFileHandle($handle)
 			->readFiles();
 	}
