@@ -4,7 +4,9 @@ namespace Supsign\LaravelCsvReader;
 
 use Supsign\LaravelCsvReader\ImportHelper;
 
-#[\AllowDynamicProperties]
+use AllowDynamicProperties;
+
+#[AllowDynamicProperties]
 class CsvReader extends ImportHelper {
 	protected
 		$escape 				= '\\',
